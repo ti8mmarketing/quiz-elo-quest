@@ -28,8 +28,10 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
     }
   });
 
-  const calibrationPercentage = questionsData 
-    ? (questionsData.calibrated / questionsData.total) * 100 
+  const total = questionsData?.total || 0;
+  const calibrated = questionsData?.calibrated || 0;
+  const calibrationPercentage = total > 0 
+    ? Math.min(100, Math.max(0, (calibrated / total) * 100))
     : 0;
 
   return (
@@ -57,7 +59,7 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
           <div className="mx-auto mt-4 h-48 w-12 border-2 border-foreground bg-background flex flex-col justify-end">
             <div 
               className="w-full bg-success transition-all duration-300"
-              style={{ height: `${calibrationPercentage}%` }}
+              style={{ height: `${calibrationPercentage}%`, minHeight: calibrationPercentage > 0 ? '2px' : '0px' }}
             />
           </div>
           <p className="mt-2 text-sm text-muted-foreground">

@@ -169,11 +169,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
 
       {/* Question Section */}
       <div className={`transition-all duration-500 ${showResult ? 'h-auto' : 'flex-1'}`}>
-        <p 
-          className={`font-semibold text-foreground transition-all duration-500 ${
-            showResult ? 'text-sm' : 'text-2xl'
-          }`}
-        >
+        <p className="font-semibold text-2xl text-foreground">
           Question:
         </p>
         <p 
@@ -185,9 +181,9 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
         </p>
 
         {/* Answer Buttons */}
-        <div 
-          className={`mt-8 grid grid-cols-2 gap-4 transition-all duration-500 ${
-            showResult ? 'h-auto scale-[0.6] -translate-y-20' : ''
+      <div 
+          className={`mt-8 grid grid-cols-2 gap-4 transition-transform duration-500 ${
+            showResult ? 'h-auto scale-y-[0.6] -translate-y-24' : ''
           }`}
         >
           {answers.map((answer, index) => (
@@ -195,7 +191,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
               key={index}
               onClick={() => handleAnswerClick(answer)}
               disabled={!!selectedAnswer}
-              className="h-24 w-full text-base font-medium transition-all"
+              className={`h-24 w-full font-medium transition-all ${showResult ? 'text-sm' : 'text-base'}`}
               style={{ 
                 aspectRatio: '5 / 3'
               }}
