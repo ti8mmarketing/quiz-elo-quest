@@ -69,14 +69,6 @@ const Index = () => {
   }, [toast]);
 
   const handleStartGame = () => {
-    if (!isCalibrated) {
-      toast({
-        title: "Complete Calibration First",
-        description: "Please answer at least 6 questions to calibrate your ELO rating.",
-        variant: "destructive",
-      });
-      return;
-    }
     setIsPlaying(true);
   };
 
