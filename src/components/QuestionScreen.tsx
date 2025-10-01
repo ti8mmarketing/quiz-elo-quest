@@ -25,6 +25,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [overlayOpacity, setOverlayOpacity] = useState(0);
 
   // Fetch a random question
   const { data: questions, refetch: refetchQuestion } = useQuery({
@@ -94,6 +95,9 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
     setIsCorrect(correct);
     setIsAnimating(true);
 
+    // Fade in overlay from 0 to 0.75 over 400ms
+    setOverlayOpacity(0.75);
+
     // Update ELO
     if (currentQuestion) {
       updateEloMutation.mutate({
@@ -102,11 +106,14 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
       });
     }
 
-    // Show result after animation
+    // Start fading out and show result after 400ms
     setTimeout(() => {
-      setShowResult(true);
-      setIsAnimating(false);
-    }, 1000);
+      setOverlayOpacity(0);
+      setTimeout(() => {
+        setShowResult(true);
+        setIsAnimating(false);
+      }, 400);
+    }, 400);
   };
 
   const handleContinue = () => {
@@ -116,6 +123,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
     setShowResult(false);
     setCurrentQuestion(null);
     setAnswers([]);
+    setOverlayOpacity(0);
     
     // Fetch new question
     refetchQuestion();
@@ -145,11 +153,11 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
       {/* Overlay */}
       {isAnimating && (
         <div 
-          className="fixed inset-0 z-10 flex items-center justify-center bg-black transition-opacity duration-200"
-          style={{ opacity: 0.75 }}
+          className="fixed inset-0 z-10 flex items-center justify-center bg-black transition-opacity duration-[400ms]"
+          style={{ opacity: overlayOpacity }}
         >
           <p 
-            className="text-6xl font-bold transition-opacity duration-200"
+            className="text-6xl font-bold"
             style={{ 
               color: isCorrect ? 'rgb(20, 215, 65)' : 'rgb(215, 20, 65)',
             }}
@@ -179,7 +187,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
         {/* Answer Buttons */}
         <div 
           className={`mt-8 grid grid-cols-2 gap-4 transition-all duration-500 ${
-            showResult ? 'h-auto scale-75 -translate-y-20' : ''
+            showResult ? 'h-auto scale-[0.6] -translate-y-20' : ''
           }`}
         >
           {answers.map((answer, index) => (
@@ -196,7 +204,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
                   ? answer === currentQuestion.correct_answer
                     ? 'default'
                     : 'destructive'
-                  : 'outline'
+                  : 'default'
               }
             >
               {answer}
