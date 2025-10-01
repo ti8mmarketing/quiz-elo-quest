@@ -1,0 +1,7 @@
+project_id = "vqudsdmcljnqjytjzlmg"
+
+[functions.fetch-questions]
+verify_jwt = false
+
+[functions.update-elo]
+verify_jwt = false
