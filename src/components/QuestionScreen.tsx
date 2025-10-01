@@ -145,11 +145,11 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
       {/* Overlay */}
       {isAnimating && (
         <div 
-          className="fixed inset-0 z-10 flex items-center justify-center bg-black transition-opacity duration-500"
+          className="fixed inset-0 z-10 flex items-center justify-center bg-black transition-opacity duration-200"
           style={{ opacity: 0.75 }}
         >
           <p 
-            className="text-6xl font-bold transition-opacity duration-500"
+            className="text-6xl font-bold transition-opacity duration-200"
             style={{ 
               color: isCorrect ? 'rgb(20, 215, 65)' : 'rgb(215, 20, 65)',
             }}
@@ -179,7 +179,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
         {/* Answer Buttons */}
         <div 
           className={`mt-8 grid grid-cols-2 gap-4 transition-all duration-500 ${
-            showResult ? 'h-auto scale-[0.6] -translate-y-full' : ''
+            showResult ? 'h-auto scale-75 -translate-y-20' : ''
           }`}
         >
           {answers.map((answer, index) => (
@@ -189,7 +189,6 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
               disabled={!!selectedAnswer}
               className="h-24 w-full text-base font-medium transition-all"
               style={{ 
-                borderRadius: 0,
                 aspectRatio: '5 / 3'
               }}
               variant={
@@ -211,14 +210,14 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
         <div className="mt-4 flex flex-1 flex-col">
           <div className="flex flex-1 gap-4">
             {/* Left: Encouragement */}
-            <div className="flex flex-1 flex-col justify-start border-2 border-foreground p-4">
+            <div className="flex flex-1 flex-col justify-start p-4">
               <p className="text-xl font-bold text-foreground">{randomEncouragement}</p>
               <p className="mt-4 text-lg font-semibold text-foreground">Right answer:</p>
               <p className="mt-2 text-base text-foreground">{currentQuestion.correct_answer}</p>
             </div>
 
             {/* Right: Question Difficulty */}
-            <div className="flex flex-1 flex-col justify-start border-2 border-foreground p-4">
+            <div className="flex flex-1 flex-col justify-start p-4">
               <p className="text-lg font-semibold italic text-foreground">Question Difficulty:</p>
               <p className="mt-2 text-base italic text-foreground capitalize">
                 {currentQuestion.difficulty}
@@ -230,7 +229,6 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
           <Button
             onClick={handleContinue}
             className="mt-4 h-16 w-full text-lg font-semibold"
-            style={{ borderRadius: 0 }}
           >
             Continue
           </Button>

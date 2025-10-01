@@ -54,10 +54,10 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
         {/* Right: Calibration Progress */}
         <div className="flex-1 text-center">
           <p className="text-xl font-semibold text-foreground">Question difficulty Calibration:</p>
-          <div className="mx-auto mt-4 h-48 w-12 border-2 border-foreground bg-background">
+          <div className="mx-auto mt-4 h-48 w-12 border-2 border-foreground bg-background flex flex-col justify-end">
             <div 
-              className="w-full bg-primary transition-all duration-300"
-              style={{ height: `${calibrationPercentage}%`, marginTop: `${100 - calibrationPercentage}%` }}
+              className="w-full bg-success transition-all duration-300"
+              style={{ height: `${calibrationPercentage}%` }}
             />
           </div>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -71,7 +71,6 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
         <Button 
           onClick={onStartGame}
           className="h-16 w-full text-lg font-semibold"
-          style={{ borderRadius: 0 }}
         >
           Start single player
         </Button>
@@ -80,7 +79,6 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
             disabled
             variant="secondary"
             className="h-16 flex-1 text-lg font-semibold"
-            style={{ borderRadius: 0 }}
           >
             Join
           </Button>
@@ -88,7 +86,6 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
             disabled
             variant="secondary"
             className="h-16 flex-1 text-lg font-semibold"
-            style={{ borderRadius: 0 }}
           >
             Offline
           </Button>

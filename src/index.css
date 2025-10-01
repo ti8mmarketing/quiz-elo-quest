@@ -39,7 +39,7 @@ All colors MUST be HSL.
     --success: 142 76% 36%; /* Green for correct answers */
     --error: 0 84% 60%; /* Red for wrong answers */
 
-    --radius: 0rem; /* No rounded corners */
+    --radius: 0.5rem; /* Rounded corners */
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
