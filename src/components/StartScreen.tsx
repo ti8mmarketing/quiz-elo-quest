@@ -56,7 +56,7 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
         {/* Right: Calibration Progress */}
         <div className="flex-1 text-center">
           <p className="text-xl text-foreground font-ubuntu -mt-6">Question difficulty Calibration</p>
-          <div className="mx-auto mt-14 h-40 w-12 border-2 border-foreground bg-background flex flex-col justify-end relative">
+          <div className="mx-auto mt-14 h-40 w-8 border-2 border-foreground flex flex-col justify-end relative" style={{ backgroundColor: 'rgb(233, 233, 233)' }}>
             <p className="absolute -top-6 left-1/2 -translate-x-1/2 text-sm text-muted-foreground font-ubuntu whitespace-nowrap">
               {questionsData?.calibrated || 0} / {questionsData?.total || 0} calibrated
             </p>
