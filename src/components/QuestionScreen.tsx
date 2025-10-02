@@ -111,11 +111,11 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
       });
     }
 
-    // Hold for 1 second, then start fading out
+    // Hold for 1 second, then fade out and move buttons up simultaneously
     setTimeout(() => {
       setOverlayOpacity(0);
+      setShowResult(true);
       setTimeout(() => {
-        setShowResult(true);
         setIsAnimating(false);
       }, 400);
     }, 1000);
