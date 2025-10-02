@@ -182,8 +182,8 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
 
         {/* Answer Buttons */}
       <div 
-          className={`mt-8 grid grid-cols-2 gap-4 transition-transform duration-500 ${
-            showResult ? 'h-auto scale-y-[0.6] -translate-y-24' : ''
+          className={`mt-8 grid grid-cols-2 gap-4 transition-all duration-500 ${
+            showResult ? '-translate-y-12' : ''
           }`}
         >
           {answers.map((answer, index) => (
@@ -191,7 +191,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
               key={index}
               onClick={() => handleAnswerClick(answer)}
               disabled={!!selectedAnswer}
-              className={`h-24 w-full font-medium transition-all ${showResult ? 'text-sm' : 'text-base'}`}
+              className={`w-full font-medium transition-all ${showResult ? 'h-14 text-sm' : 'h-24 text-base'}`}
               style={{ 
                 aspectRatio: '5 / 3'
               }}
