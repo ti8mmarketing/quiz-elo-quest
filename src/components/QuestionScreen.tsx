@@ -169,7 +169,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
 
       {/* Question Section */}
       <div className="flex items-start justify-between">
-        <p className="font-semibold text-2xl text-foreground font-montserrat">
+        <p className="text-2xl text-foreground font-montserrat">
           Question:
         </p>
         <Button
@@ -199,14 +199,13 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
             key={index}
             onClick={() => handleAnswerClick(answer)}
             disabled={!!selectedAnswer}
-            className={`w-full font-medium transition-all duration-500 font-ubuntu ${showResult ? 'h-14 text-sm' : 'h-24 text-base'}`}
+            className={`w-full font-medium transition-all duration-500 font-ubuntu text-white ${showResult ? 'h-14 text-sm' : 'h-24 text-base'}`}
             style={{ 
               aspectRatio: '5 / 3',
               ...(selectedAnswer && {
                 backgroundColor: answer === currentQuestion.correct_answer 
                   ? 'rgb(20, 215, 65)' 
                   : 'rgb(215, 20, 65)',
-                color: 'white'
               })
             }}
             variant="default"
@@ -229,7 +228,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
 
             {/* Right: Question Difficulty */}
             <div className="flex flex-1 flex-col justify-start p-4">
-              <p className="text-lg font-semibold text-foreground font-ubuntu">Question Difficulty:</p>
+              <p className="text-lg text-foreground font-ubuntu">Question Difficulty:</p>
               <p className="mt-2 text-base text-foreground capitalize font-ubuntu">
                 {currentQuestion.difficulty}
               </p>

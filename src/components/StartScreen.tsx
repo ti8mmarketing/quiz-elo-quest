@@ -38,7 +38,7 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
     <div className="flex min-h-screen flex-col items-center justify-between bg-background p-6">
       {/* Title */}
       <div className="w-full pt-8">
-        <h1 className="text-left text-4xl font-bold underline font-montserrat">
+        <h1 className="text-left text-4xl underline font-montserrat">
           World of Tech
         </h1>
       </div>
@@ -47,8 +47,8 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
       <div className="flex w-full max-w-4xl items-start justify-center gap-8">
         {/* Left: Player ELO */}
         <div className="flex-1 text-center relative h-40">
-          <p className="absolute top-16 left-1/2 -translate-x-1/2 text-xl font-semibold text-foreground font-ubuntu">Your current elo</p>
-          <p className="absolute top-24 left-1/2 -translate-x-1/2 text-3xl font-bold text-foreground font-ubuntu">
+          <p className="text-xl font-semibold text-foreground font-ubuntu">Your current elo</p>
+          <p className="absolute top-28 left-1/2 -translate-x-1/2 text-3xl font-bold text-foreground font-ubuntu">
             {playerElo !== null ? (isCalibrated ? playerElo : `${playerElo}?`) : '1200?'}
           </p>
         </div>
