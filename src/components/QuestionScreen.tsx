@@ -175,7 +175,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
         <Button
           onClick={onBackToStart}
           variant="default"
-          className="text-2xl font-semibold h-auto p-1 font-ubuntu"
+          className="text-lg font-semibold h-auto p-1 font-ubuntu text-white"
         >
           ⮪ Back
         </Button>
@@ -239,7 +239,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
           {/* Continue Button */}
           <Button
             onClick={handleContinue}
-            className="mt-4 h-16 w-full text-lg font-semibold font-ubuntu"
+            className="mt-4 h-16 w-full text-lg font-semibold font-ubuntu text-white"
           >
             Continue
           </Button>
