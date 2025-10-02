@@ -199,7 +199,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
             key={index}
             onClick={() => handleAnswerClick(answer)}
             disabled={!!selectedAnswer}
-            className={`w-full font-medium transition-all duration-500 font-ubuntu text-white ${showResult ? 'h-14 text-sm' : 'h-24 text-base'}`}
+            className={`w-full font-medium transition-all duration-500 font-ubuntu text-white whitespace-normal ${showResult ? 'min-h-14 text-sm py-2' : 'min-h-24 text-base py-4'}`}
             style={{ 
               aspectRatio: '5 / 3',
               ...(selectedAnswer && {
