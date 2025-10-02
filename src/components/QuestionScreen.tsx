@@ -169,19 +169,19 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
 
       {/* Question Section */}
       <div className="flex items-start justify-between">
-        <p className="font-semibold text-2xl text-foreground">
+        <p className="font-semibold text-2xl text-foreground font-montserrat">
           Question:
         </p>
         <Button
           onClick={onBackToStart}
-          variant="ghost"
-          className="text-2xl font-semibold h-auto p-1"
+          variant="default"
+          className="text-2xl font-semibold h-auto p-1 font-ubuntu"
         >
           ⮪ Back
         </Button>
       </div>
       <p 
-        className={`mt-2 text-foreground transition-all duration-500 ${
+        className={`mt-2 text-foreground transition-all duration-500 font-ubuntu ${
           showResult ? 'text-xs' : 'text-lg'
         }`}
       >
@@ -199,15 +199,14 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
             key={index}
             onClick={() => handleAnswerClick(answer)}
             disabled={!!selectedAnswer}
-            className={`w-full font-medium transition-all duration-500 ${showResult ? 'h-14 text-sm' : 'h-24 text-base'}`}
+            className={`w-full font-medium transition-all duration-500 font-ubuntu ${showResult ? 'h-14 text-sm' : 'h-24 text-base'}`}
             style={{ 
               aspectRatio: '5 / 3',
               ...(selectedAnswer && {
                 backgroundColor: answer === currentQuestion.correct_answer 
                   ? 'rgb(20, 215, 65)' 
-                  : selectedAnswer === answer 
-                    ? 'rgb(215, 20, 65)' 
-                    : undefined
+                  : 'rgb(215, 20, 65)',
+                color: 'white'
               })
             }}
             variant="default"
@@ -223,15 +222,15 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
           <div className="flex flex-1 gap-4">
             {/* Left: Encouragement */}
             <div className="flex flex-1 flex-col justify-start p-4">
-              <p className="text-xl font-bold text-foreground">{randomEncouragement}</p>
-              <p className="mt-4 text-lg font-semibold text-foreground">Right answer:</p>
-              <p className="mt-2 text-base text-foreground">{currentQuestion.correct_answer}</p>
+              <p className="text-xl font-bold text-foreground font-ubuntu">{randomEncouragement}</p>
+              <p className="mt-4 text-lg font-semibold text-foreground font-ubuntu">Right answer:</p>
+              <p className="mt-2 text-base text-foreground font-bold font-ubuntu">{currentQuestion.correct_answer}</p>
             </div>
 
             {/* Right: Question Difficulty */}
             <div className="flex flex-1 flex-col justify-start p-4">
-              <p className="text-lg font-semibold italic text-foreground">Question Difficulty:</p>
-              <p className="mt-2 text-base italic text-foreground capitalize">
+              <p className="text-lg font-semibold text-foreground font-ubuntu">Question Difficulty:</p>
+              <p className="mt-2 text-base text-foreground capitalize font-ubuntu">
                 {currentQuestion.difficulty}
               </p>
             </div>
@@ -240,7 +239,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
           {/* Continue Button */}
           <Button
             onClick={handleContinue}
-            className="mt-4 h-16 w-full text-lg font-semibold"
+            className="mt-4 h-16 w-full text-lg font-semibold font-ubuntu"
           >
             Continue
           </Button>
