@@ -44,7 +44,7 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
       </div>
 
       {/* Middle section with ELO and Calibration */}
-      <div className="flex w-full max-w-4xl items-start justify-center gap-8">
+      <div className="flex w-full max-w-4xl items-start justify-center gap-8 -mt-8">
         {/* Left: Player ELO */}
         <div className="flex-1 text-center relative h-40">
           <p className="text-xl font-semibold text-foreground font-ubuntu">Your current elo</p>
