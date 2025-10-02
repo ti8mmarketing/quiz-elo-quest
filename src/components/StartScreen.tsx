@@ -38,13 +38,13 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
     <div className="flex min-h-screen flex-col items-center justify-between bg-background p-6">
       {/* Title */}
       <div className="w-full pt-8">
-        <h1 className="text-center text-4xl font-bold underline" style={{ fontFamily: 'Caladea, serif' }}>
+        <h1 className="text-left text-4xl font-bold underline" style={{ fontFamily: 'Caladea, serif' }}>
           World of Tech
         </h1>
       </div>
 
       {/* Middle section with ELO and Calibration */}
-      <div className="flex w-full max-w-4xl items-center justify-center gap-8">
+      <div className="flex w-full max-w-4xl items-start justify-center gap-8">
         {/* Left: Player ELO */}
         <div className="flex-1 text-center">
           <p className="text-xl font-semibold text-foreground">Your current elo</p>
@@ -55,43 +55,28 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
 
         {/* Right: Calibration Progress */}
         <div className="flex-1 text-center">
-          <p className="text-xl font-semibold text-foreground">Question difficulty Calibration:</p>
-          <div className="mx-auto mt-4 h-48 w-12 border-2 border-foreground bg-background flex flex-col justify-end">
-            <div 
-              className="w-full bg-success transition-all duration-300"
-              style={{ height: `${calibrationPercentage}%`, minHeight: calibrationPercentage > 0 ? '2px' : '0px' }}
-            />
-          </div>
+          <p className="text-xl font-semibold text-foreground">Question difficulty Calibration</p>
           <p className="mt-2 text-sm text-muted-foreground">
             {questionsData?.calibrated || 0} / {questionsData?.total || 0} calibrated
           </p>
+          <div className="mx-auto mt-2 h-48 w-12 border-2 border-foreground bg-background flex flex-col justify-end">
+            <div 
+              className="w-full bg-primary transition-all duration-300"
+              style={{ height: `${calibrationPercentage}%`, minHeight: calibrationPercentage > 0 ? '2px' : '0px' }}
+            />
+          </div>
         </div>
       </div>
 
       {/* Bottom buttons */}
-      <div className="w-full max-w-2xl space-y-4 pb-8">
+      <div className="w-full max-w-2xl pb-8">
         <Button 
           onClick={onStartGame}
-          className="h-16 w-full text-lg font-semibold"
+          className="w-full text-lg font-semibold"
+          style={{ aspectRatio: '5 / 2' }}
         >
           Start single player
         </Button>
-        <div className="flex gap-4">
-          <Button 
-            disabled
-            variant="secondary"
-            className="h-16 flex-1 text-lg font-semibold"
-          >
-            Join
-          </Button>
-          <Button 
-            disabled
-            variant="secondary"
-            className="h-16 flex-1 text-lg font-semibold"
-          >
-            Offline
-          </Button>
-        </div>
       </div>
     </div>
   );

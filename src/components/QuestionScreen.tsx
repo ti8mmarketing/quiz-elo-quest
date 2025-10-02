@@ -168,18 +168,25 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
       )}
 
       {/* Question Section */}
-      <div>
+      <div className="flex items-start justify-between">
         <p className="font-semibold text-2xl text-foreground">
           Question:
         </p>
-        <p 
-          className={`mt-2 text-foreground transition-all duration-500 ${
-            showResult ? 'text-xs' : 'text-lg'
-          }`}
+        <Button
+          onClick={onBackToStart}
+          variant="ghost"
+          className="text-2xl font-semibold h-auto p-1"
         >
-          {currentQuestion.question}
-        </p>
+          ⮪ Back
+        </Button>
       </div>
+      <p 
+        className={`mt-2 text-foreground transition-all duration-500 ${
+          showResult ? 'text-xs' : 'text-lg'
+        }`}
+      >
+        {currentQuestion.question}
+      </p>
 
       {/* Answer Buttons */}
       <div 
@@ -194,15 +201,16 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
             disabled={!!selectedAnswer}
             className={`w-full font-medium transition-all duration-500 ${showResult ? 'h-14 text-sm' : 'h-24 text-base'}`}
             style={{ 
-              aspectRatio: '5 / 3'
+              aspectRatio: '5 / 3',
+              ...(selectedAnswer && {
+                backgroundColor: answer === currentQuestion.correct_answer 
+                  ? 'rgb(20, 215, 65)' 
+                  : selectedAnswer === answer 
+                    ? 'rgb(215, 20, 65)' 
+                    : undefined
+              })
             }}
-            variant={
-              selectedAnswer === answer
-                ? answer === currentQuestion.correct_answer
-                  ? 'default'
-                  : 'destructive'
-                : 'default'
-            }
+            variant="default"
           >
             {answer}
           </Button>
