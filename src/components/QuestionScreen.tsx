@@ -168,52 +168,50 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
       )}
 
       {/* Question Section */}
-      <div className="flex-1 flex flex-col justify-between">
-        <div>
-          <p className="font-semibold text-2xl text-foreground">
-            Question:
-          </p>
-          <p 
-            className={`mt-2 text-foreground transition-all duration-500 ${
-              showResult ? 'text-xs' : 'text-lg'
-            }`}
-          >
-            {currentQuestion.question}
-          </p>
-        </div>
-
-        {/* Answer Buttons */}
-        <div 
-          className={`grid grid-cols-2 gap-4 transition-all duration-500 ${
-            showResult ? '-translate-y-12' : ''
+      <div>
+        <p className="font-semibold text-2xl text-foreground">
+          Question:
+        </p>
+        <p 
+          className={`mt-2 text-foreground transition-all duration-500 ${
+            showResult ? 'text-xs' : 'text-lg'
           }`}
         >
-          {answers.map((answer, index) => (
-            <Button
-              key={index}
-              onClick={() => handleAnswerClick(answer)}
-              disabled={!!selectedAnswer}
-              className={`w-full font-medium transition-all duration-500 ${showResult ? 'h-14 text-sm' : 'h-24 text-base'}`}
-              style={{ 
-                aspectRatio: '5 / 3'
-              }}
-              variant={
-                selectedAnswer === answer
-                  ? answer === currentQuestion.correct_answer
-                    ? 'default'
-                    : 'destructive'
-                  : 'default'
-              }
-            >
-              {answer}
-            </Button>
-          ))}
-        </div>
+          {currentQuestion.question}
+        </p>
+      </div>
+
+      {/* Answer Buttons */}
+      <div 
+        className={`absolute left-6 right-6 grid grid-cols-2 gap-4 transition-all duration-500 ${
+          showResult ? 'top-[35%]' : 'top-[50%]'
+        }`}
+      >
+        {answers.map((answer, index) => (
+          <Button
+            key={index}
+            onClick={() => handleAnswerClick(answer)}
+            disabled={!!selectedAnswer}
+            className={`w-full font-medium transition-all duration-500 ${showResult ? 'h-14 text-sm' : 'h-24 text-base'}`}
+            style={{ 
+              aspectRatio: '5 / 3'
+            }}
+            variant={
+              selectedAnswer === answer
+                ? answer === currentQuestion.correct_answer
+                  ? 'default'
+                  : 'destructive'
+                : 'default'
+            }
+          >
+            {answer}
+          </Button>
+        ))}
       </div>
 
       {/* Result Section */}
       {showResult && (
-        <div className="mt-4 flex flex-1 flex-col">
+        <div className="absolute left-6 right-6 bottom-6 top-[55%] flex flex-col">
           <div className="flex flex-1 gap-4">
             {/* Left: Encouragement */}
             <div className="flex flex-1 flex-col justify-start p-4">
