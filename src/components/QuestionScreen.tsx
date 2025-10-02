@@ -184,7 +184,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
       {/* Answer Buttons */}
       <div 
         className={`absolute left-6 right-6 grid grid-cols-2 gap-4 transition-all duration-500 ${
-          showResult ? 'top-[15%]' : 'top-[50%]'
+          showResult ? 'top-[22%]' : 'top-[50%]'
         }`}
       >
         {answers.map((answer, index) => (
