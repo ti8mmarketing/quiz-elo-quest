@@ -168,21 +168,23 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
       )}
 
       {/* Question Section */}
-      <div className={`transition-all duration-500 ${showResult ? 'h-auto' : 'flex-1'}`}>
-        <p className="font-semibold text-2xl text-foreground">
-          Question:
-        </p>
-        <p 
-          className={`mt-2 text-foreground transition-all duration-500 ${
-            showResult ? 'text-xs' : 'text-lg'
-          }`}
-        >
-          {currentQuestion.question}
-        </p>
+      <div className="flex-1 flex flex-col justify-between">
+        <div>
+          <p className="font-semibold text-2xl text-foreground">
+            Question:
+          </p>
+          <p 
+            className={`mt-2 text-foreground transition-all duration-500 ${
+              showResult ? 'text-xs' : 'text-lg'
+            }`}
+          >
+            {currentQuestion.question}
+          </p>
+        </div>
 
         {/* Answer Buttons */}
-      <div 
-          className={`mt-8 grid grid-cols-2 gap-4 transition-all duration-500 ${
+        <div 
+          className={`grid grid-cols-2 gap-4 transition-all duration-500 ${
             showResult ? '-translate-y-12' : ''
           }`}
         >
