@@ -95,8 +95,13 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
     setIsCorrect(correct);
     setIsAnimating(true);
 
+    // Start with opacity 0, then fade in to 0.75
+    setOverlayOpacity(0);
+    
     // Fade in overlay from 0 to 0.75 over 400ms
-    setOverlayOpacity(0.75);
+    setTimeout(() => {
+      setOverlayOpacity(0.75);
+    }, 10);
 
     // Update ELO
     if (currentQuestion) {
