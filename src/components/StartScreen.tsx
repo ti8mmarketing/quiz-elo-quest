@@ -44,19 +44,19 @@ export const StartScreen = ({ playerElo, isCalibrated, onStartGame }: StartScree
       </div>
 
       {/* Middle section with ELO and Calibration */}
-      <div className="flex w-full max-w-4xl items-start justify-center gap-8 -mt-8">
+      <div className="flex w-full max-w-4xl items-start justify-center gap-8">
         {/* Left: Player ELO */}
         <div className="flex-1 text-center relative h-40">
-          <p className="text-xl font-semibold text-foreground font-ubuntu">Your current elo</p>
-          <p className="absolute top-60 left-1/2 -translate-x-1/2 text-3xl font-bold text-foreground font-ubuntu">
+          <p className="text-xl font-semibold text-foreground font-ubuntu -mt-6">Your current elo</p>
+          <p className="absolute top-28 left-1/2 -translate-x-1/2 text-3xl font-bold text-foreground font-ubuntu">
             {playerElo !== null ? (isCalibrated ? playerElo : `${playerElo}?`) : '1200?'}
           </p>
         </div>
 
         {/* Right: Calibration Progress */}
         <div className="flex-1 text-center">
-          <p className="text-xl font-semibold text-foreground font-ubuntu">Question difficulty Calibration</p>
-          <div className="mx-auto mt-34 h-40 w-12 border-2 border-foreground bg-background flex flex-col justify-end relative">
+          <p className="text-xl font-semibold text-foreground font-ubuntu -mt-6">Question difficulty Calibration</p>
+          <div className="mx-auto mt-2 h-40 w-12 border-2 border-foreground bg-background flex flex-col justify-end relative">
             <p className="absolute -top-6 left-1/2 -translate-x-1/2 text-sm text-muted-foreground font-ubuntu whitespace-nowrap">
               {questionsData?.calibrated || 0} / {questionsData?.total || 0} calibrated
             </p>
