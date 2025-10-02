@@ -111,14 +111,14 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
       });
     }
 
-    // Start fading out and show result after 400ms
+    // Hold for 1 second, then start fading out
     setTimeout(() => {
       setOverlayOpacity(0);
       setTimeout(() => {
         setShowResult(true);
         setIsAnimating(false);
       }, 400);
-    }, 400);
+    }, 1000);
   };
 
   const handleContinue = () => {
