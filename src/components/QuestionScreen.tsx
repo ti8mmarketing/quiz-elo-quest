@@ -193,7 +193,7 @@ export const QuestionScreen = ({ playerElo, onUpdateElo, onBackToStart }: Questi
               key={index}
               onClick={() => handleAnswerClick(answer)}
               disabled={!!selectedAnswer}
-              className={`w-full font-medium transition-all ${showResult ? 'h-14 text-sm' : 'h-24 text-base'}`}
+              className={`w-full font-medium transition-all duration-500 ${showResult ? 'h-14 text-sm' : 'h-24 text-base'}`}
               style={{ 
                 aspectRatio: '5 / 3'
               }}
